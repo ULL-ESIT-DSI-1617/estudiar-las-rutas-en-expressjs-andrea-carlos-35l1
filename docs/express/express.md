@@ -88,3 +88,41 @@ O como forma alternativa.
  })  
 ~~~
 
+## Route Path.
+
+Para las route Path, podemos utilizar expresiones regulares, de forma que podemos definir más de una ruta para una misma función.
+Por ejemplo:
+
+Si queremos que al escribir cualquier cadena que empiece por 'a', responda Buenos Dias!!.
+~~~
+app.get('/a*', function (req, res) {  
+  res.send('Buenos Días!!')  
+})  
+~~~
+
+![foto](abc.png)
+![foto](aspirina.png)
+
+O si queremos que responda lo mismo para 'chico' y 'chica'.
+~~~
+app.get('/chic[oa]', function (req, res) {  
+  res.send('Buenos Días!')  
+})  
+~~~
+![foto](chico.png)
+![foto](chica.png)
+Otra forma de manipular la route path es usando parámetros, y 'req.param':
+
+Ejemplos:
+~~~
+app.get('/nombre/:nombre/apellido/:apellido', function (req, res) {  
+  res.send(req.params)  
+})  
+~~~
+![foto](nombre-apellido.png)
+~~~
+app.get('/t/:min-:max', function (req, res) {  
+  res.send(req.params)  
+})  
+~~~
+![foto](min-max.png)
