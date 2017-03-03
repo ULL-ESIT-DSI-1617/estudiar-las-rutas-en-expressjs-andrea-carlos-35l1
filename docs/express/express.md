@@ -42,3 +42,49 @@ app.all('/secret', function (req, res, next) {
 Podremos obtener ambas salidas. En caso
 
   ![foto](secret-salida.png)
+  
+
+## Multiple Handler
+
+Haciendo uso de los http request methods también podemos definir estructuras un poco más complejas, con varias funciones de respuesta.
+Por ejemplo podemos utilizar una función next para definir dos salidas.
+~~~
+app.get('/prueba/1', function(req, res, next) {  
+  console.log('Ahora se dirigirá a la función con el seguiente mensaje')  
+  next()  
+}, function (req, res) {  
+  res.send('Prueba 1 correcta')  
+})  
+~~~
+![foto](prueba-1.png)
+
+o haciendo uso de variables, definir más de 2 salidas.
+~~~
+var ejemplo1 = function (req, res, next) {  
+  console.log('primer elemento')  
+  next()  
+}  
+
+var ejemplo2 = function (req, res, next) {  
+  console.log('segundo elemento')  
+  next()  
+}  
+
+var ejemplo3 = function (req, res) {  
+  res.send('Se han registrado los 2 elementos')  
+}  
+
+app.get('/prueba/2', [ejemplo1, ejemplo2, ejemplo3])
+~~~
+ ![foto](prueba-2.png)
+
+O como forma alternativa.
+~~~
+ app.get('/prueba/3', [ejemplo1, ejemplo2], function(req, res, next){  
+   console.log('Añadido otro elemento')  
+   next()  
+ }, function(req, res) {  
+   res.send('Se han registrado 3 elementos')  
+ })  
+~~~
+

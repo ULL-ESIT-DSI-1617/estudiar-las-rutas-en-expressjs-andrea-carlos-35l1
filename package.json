@@ -1,7 +1,6 @@
 {
   "name": "dsi3",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "directories": {
     "doc": "docs"
@@ -17,5 +16,6 @@
   },
   "devDependencies": {
     "gitbook-cli": "^2.3.0"
-  }
+  },
+  "description": ""
 }
