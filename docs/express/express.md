@@ -8,6 +8,7 @@ Cada route tendra una o más respuestas y un path del server.
 Cada route estará compuesto por una instancia de express, generalmente lo llamaremos *app*, un método http de respuesta, como put, post, get... y una o más funciones de respuesta.
 
 Algunos ejemplos de routing pueden ser:
+
 ~~~
   app.post('/hello', function (req, res) {  
     res.send('Hello!!!')  
