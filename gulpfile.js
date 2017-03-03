@@ -17,8 +17,8 @@ gulp.task('deploypush', ['deploy'], function() {
 })
 
 gulp.task('deploygb', shell.task([
-    'cd ..'+
-    ';'+
+    //'cd ..'+
+   // ';'+
     'cd docs'+
     ';'+
     'git add .'+
@@ -27,6 +27,16 @@ gulp.task('deploygb', shell.task([
     ';'+
     'git push https://git.gitbook.com/alu0100819847/carlos-andrea-3.git master'
 ]));
+    
+    gulp.task('deploygb', shell.task([
+    'cd txt'+
+    ';'+
+    'git add .'+
+    ';'+
+    'git commit -m "Actualizando gitbook"'+
+    ';'+
+    'git push https://git.gitbook.com/alu0100826999/carlos-andrea-2.git master'
+    ]));
     
 gulp.task('serve', shell.task(
   'cd ..'+
