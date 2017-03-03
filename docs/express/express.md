@@ -126,3 +126,43 @@ app.get('/t/:min-:max', function (req, res) {
 })  
 ~~~
 ![foto](min-max.png)
+
+# Middleware.
+
+Una aplicación en express es básicamente una secuencia de middleware. Un middleware es una función que tiene acceso a una solicitud (request object), a una respuesta (response object) y al siguiente middleware, que es communmente denominado next.
+El middleware toma el control, y en caso de no finalizar el ciclo de solicitudes, pasa el control al siguiente middleware, y asi sucesivamente hasta que logra su objetivo.
+
+## Application-level middleware.
+
+Este tipo de middleware hace uso de instancias de express. Puede ser usado sin hacer uso de Path; en este caso, se ejecutaría cada vez que se realiza una request.
+
+~~~
+app.use(function (req, res, next) {
+  console.log('Time:', Date.now())
+  next()
+})
+~~~
+
+y con el route definido:
+
+~~~
+app.post('/hey', function (req, res, next) {
+  res.render('hey')
+  next()
+})
+~~~
+
+obtendremos por consola:
+
+![foto](hora.png)
+
+Al ser usando incluyendo route path, se ejecutará en los middleware en los que coincida. Por ejemplos:
+
+~~~
+app.get('/ejemplo/1', [ejemplo1, ejemplo2], function(req, res, next){
+  res.send('ejemplo 1')
+  next()
+})
+~~~
+
+![foto](ejemplo1.png)
