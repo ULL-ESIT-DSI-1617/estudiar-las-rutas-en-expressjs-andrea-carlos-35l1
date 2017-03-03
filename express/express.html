@@ -1,0 +1,539 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Express · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.2">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+    <link rel="prev" href="../" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2" data-path="express.html">
+            
+                <a href="express.html">
+            
+                    
+                    Express
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Express</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="expresss">EXPRESSS</h1>
+<h2 id="routing-basico">Routing basico</h2>
+<p>El routing se encarga de controlar como una aplicaci&#xF3;n responder&#xE1; a una petici&#xF3;n de un cliente.
+Cada route tendra una o m&#xE1;s respuestas y un path del server.</p>
+<p>Cada route estar&#xE1; compuesto por una instancia de express, generalmente lo llamaremos <em>app</em>, un m&#xE9;todo http de respuesta, como put, post, get... y una o m&#xE1;s funciones de respuesta.</p>
+<p>Algunos ejemplos de routing pueden ser:</p>
+<pre><code>  app.post(&apos;/hello&apos;, function (req, res) {  
+    res.send(&apos;Hello!!!&apos;)  
+  })  
+
+  app.get(&apos;/hello&apos;, function (req, res) {  
+    res.send(&apos;Hello!!!&apos;)  
+    })
+</code></pre><p>Con una salida:
+  escribir salida.</p>
+<p>Tambien tenemos alg&#xFA;n m&#xE9;todo no derivado de los metodos http, que nos permite cargar funciones middleware con m&#xE9;todos request, como el m&#xE9;todo all.</p>
+<p>Por ejemplo:</p>
+<pre><code>app.all(&apos;/secret&apos;, function (req, res, next) {  
+  console.log(&apos;Accessing the secret section...&apos;)  
+  next()  
+})
+</code></pre><p>En este caso, no tenemos definida una funci&#xF3;n para next, y tampoco hemos definido un contenido que mostrar por el servidor, pero si un mensaje que mostrar en la consola cuando es llamado &apos;/secret&apos;.</p>
+<p>  <img src="secret-nosalida.png" alt="foto"></p>
+<p>Si adem&#xE1;s le definimos una funci&#xF3;n next:</p>
+<pre><code>app.all(&apos;/secret&apos;, function (req, res, next) {  
+  console.log(&apos;Accessing the secret section...&apos;)  
+}, function (req, res) {  
+  res.send(&apos;Secreto&apos;)  
+})
+</code></pre><p>Podremos obtener ambas salidas. En caso</p>
+<p>  <img src="secret-salida.png" alt="foto"></p>
+<h2 id="multiple-handler">Multiple Handler</h2>
+<p>Haciendo uso de los http request methods tambi&#xE9;n podemos definir estructuras un poco m&#xE1;s complejas, con varias funciones de respuesta.
+Por ejemplo podemos utilizar una funci&#xF3;n next para definir dos salidas.</p>
+<pre><code>app.get(&apos;/prueba/1&apos;, function(req, res, next) {  
+  console.log(&apos;Ahora se dirigir&#xE1; a la funci&#xF3;n con el seguiente mensaje&apos;)  
+  next()  
+}, function (req, res) {  
+  res.send(&apos;Prueba 1 correcta&apos;)  
+})
+</code></pre><p><img src="prueba-1.png" alt="foto"></p>
+<p>o haciendo uso de variables, definir m&#xE1;s de 2 salidas.</p>
+<pre><code>var ejemplo1 = function (req, res, next) {  
+  console.log(&apos;primer elemento&apos;)  
+  next()  
+}  
+
+var ejemplo2 = function (req, res, next) {  
+  console.log(&apos;segundo elemento&apos;)  
+  next()  
+}  
+
+var ejemplo3 = function (req, res) {  
+  res.send(&apos;Se han registrado los 2 elementos&apos;)  
+}  
+
+app.get(&apos;/prueba/2&apos;, [ejemplo1, ejemplo2, ejemplo3])
+</code></pre><p> <img src="prueba-2.png" alt="foto"></p>
+<p>O como forma alternativa.</p>
+<pre><code> app.get(&apos;/prueba/3&apos;, [ejemplo1, ejemplo2], function(req, res, next){  
+   console.log(&apos;A&#xF1;adido otro elemento&apos;)  
+   next()  
+ }, function(req, res) {  
+   res.send(&apos;Se han registrado 3 elementos&apos;)  
+ })
+</code></pre><h2 id="route-path">Route Path.</h2>
+<p>Para las route Path, podemos utilizar expresiones regulares, de forma que podemos definir m&#xE1;s de una ruta para una misma funci&#xF3;n.
+Por ejemplo:</p>
+<p>Si queremos que al escribir cualquier cadena que empiece por &apos;a&apos;, responda Buenos Dias!!.</p>
+<pre><code>app.get(&apos;/a*&apos;, function (req, res) {  
+  res.send(&apos;Buenos D&#xED;as!!&apos;)  
+})
+</code></pre><p><img src="abc.png" alt="foto">
+<img src="aspirina.png" alt="foto"></p>
+<p>O si queremos que responda lo mismo para &apos;chico&apos; y &apos;chica&apos;.</p>
+<pre><code>app.get(&apos;/chic[oa]&apos;, function (req, res) {  
+  res.send(&apos;Buenos D&#xED;as!&apos;)  
+})
+</code></pre><p><img src="chico.png" alt="foto">
+<img src="chica.png" alt="foto">
+Otra forma de manipular la route path es usando par&#xE1;metros, y &apos;req.param&apos;:</p>
+<p>Ejemplos:</p>
+<pre><code>app.get(&apos;/nombre/:nombre/apellido/:apellido&apos;, function (req, res) {  
+  res.send(req.params)  
+})
+</code></pre><p><img src="nombre-apellido.png" alt="foto"></p>
+<pre><code>app.get(&apos;/t/:min-:max&apos;, function (req, res) {  
+  res.send(req.params)  
+})
+</code></pre><p><img src="min-max.png" alt="foto"></p>
+<h1 id="middleware">Middleware.</h1>
+<p>Una aplicaci&#xF3;n en express es b&#xE1;sicamente una secuencia de middleware. Un middleware es una funci&#xF3;n que tiene acceso a una solicitud (request object), a una respuesta (response object) y al siguiente middleware, que es communmente denominado next.
+El middleware toma el control, y en caso de no finalizar el ciclo de solicitudes, pasa el control al siguiente middleware, y as&#xED; sucesivamente hasta que logra su objetivo.</p>
+<h2 id="application-level-middleware">Application-level middleware.</h2>
+<p>Este tipo de middleware hace uso de instancias de express. Puede ser usado sin hacer uso de Path; en este caso, se ejecutar&#xED;a cada vez que se realiza una request.</p>
+<pre><code>app.use(function (req, res, next) {
+  console.log(&apos;Time:&apos;, Date.now())
+  next()
+})
+</code></pre><p>y con el route definido:</p>
+<pre><code>app.post(&apos;/hey&apos;, function (req, res, next) {
+  res.render(&apos;hey&apos;)
+  next()
+})
+</code></pre><p>obtendremos por consola:</p>
+<p><img src="hora.png" alt="foto"></p>
+<p>Al usar route path, se ejecutar&#xE1; en los middleware en los que coincida. Por ejemplos:</p>
+<pre><code>app.get(&apos;/ejemplo/1&apos;, [ejemplo1, ejemplo2], function(req, res, next){
+  res.send(&apos;ejemplo 1&apos;)
+  next()
+})
+</code></pre><p><img src="ejemplo1.png" alt="foto"></p>
+<h2 id="router-level-middleware">Router-level middleware</h2>
+<p>Este tipo de middleware funciona de la misma manera que el midleware anterior (Application-level middleware), excepto que este est&#xE1; enlazado a una instancia de express llamada Router ().</p>
+<p>El siguiente ejemplo muestra el mismo ejemplo usado en el middlewarwe de nivel de aplicaci&#xF3;n pero usando un middleware de nivel de enrutador:</p>
+<pre><code>var router = express.Router()
+
+app.use(function (req, res, next) {
+  console.log(&apos;Time:&apos;, Date.now())
+  next()
+})
+</code></pre><p>El siguiente ejemplo muestra una pila de middleware de nivel de enrutador usando get. En el caso de que el id del router sea 0, pasar&#xE1; al siguiente router, de lo contrario pasar&#xE1; el control a la siguiente funci&#xF3;n middleware de la pila:</p>
+<pre><code>router.get(&apos;/ejemplos/:id&apos;, function (req, res, next) {
+  if (req.params.id === &apos;0&apos;)  {
+    next(&apos;route&apos;) 
+  }
+  else next()
+})
+</code></pre><p>Para montarel enrutador en la aplicaci&#xF3;n hacemos:</p>
+<pre><code>app.use(&apos;/&apos;, router)
+</code></pre><h2 id="error-handling-middleware-middleware-de-manejo-de-errores">Error-handling middleware (middleware de manejo de errores)</h2>
+<p>Los middleware de manejo de errores siempre toman cuatro argumentos, son necesarios para identificarse como este tipo demiddleware. Aunque no sea necesario el uso de los cuatro argumentos, deben especificarse.</p>
+<pre><code>app.use(function (err, req, res, next) {
+  console.error(err.stack)
+  res.status(500).send(&apos;Something broke!&apos;)
+})
+</code></pre><h2 id="built-in-middleware-middlewear-incorporado">Built-in middleware (middlewear incorporado)</h2>
+<p>La &#xFA;nica funci&#xF3;n middleware incorporada en Express es express.static. Esta funci&#xF3;n se basa en serve-static y es responsable de servir activos est&#xE1;ticos, como archivos HTML, im&#xE1;genes, etc. Su sint&#xE1;xis es:</p>
+<pre><code>express.static(root, [options])
+</code></pre><p>El argumento root especifica el directorio ra&#xED;z desde el cual se deben coger los recursos est&#xE1;ticos.</p>
+<p>A continuaci&#xF3;n se muestra un ejemplo del uso de la funci&#xF3;n de middleware express.static con un objeto opciones:</p>
+<pre><code>var options = {
+  dotfiles: &apos;ignore&apos;,
+  etag: false,
+  extensions: [&apos;htm&apos;, &apos;html&apos;],
+  index: false,
+  maxAge: &apos;1d&apos;,
+  redirect: false,
+  setHeaders: function (res, path, stat) {
+    res.set(&apos;x-timestamp&apos;, Date.now())
+  }
+}
+
+app.use(express.static(&apos;_book&apos;, options))
+</code></pre><p>Ahora el c&#xF3;gigo estar&#xE1; atento a cualquier fichero con la extensi&#xF3;n y las opciones especificadas que le pidan en la carpeta public (en este caso).</p>
+<h2 id="third-party-middleware-middleware-de-terceros">Third-party middleware (middleware de terceros)</h2>
+<p>Podemos utilizar middleware de terceros para agregar funcionalidad a las aplicaciones de Express.</p>
+<p>Debemos instalar el m&#xF3;dulo Node.js para obtener la funcionalidad requerida y, a continuaci&#xF3;n, debemos cargarlo en la aplicaci&#xF3;n en el nivel de aplicaci&#xF3;n o en el nivel del enrutador.</p>
+<p>El siguiente ejemplo ilustra la instalaci&#xF3;n y la carga de la funci&#xF3;n cookie-parser de middleware de an&#xE1;lisis de cookies:</p>
+<pre><code>npm install cookie-parser
+</code></pre><p>Ejemplo de uso de la funci&#xF3;n cookie-parser:</p>
+<pre><code>var express = require(&apos;express&apos;)
+var app = express()
+var cookieParser = require(&apos;cookie-parser&apos;)
+
+//cargamos la funci&#xF3;n cookie-parser
+app.use(cookieParser())
+</code></pre><h1 id="router">Router</h1>
+<p>Un objeto enrutador es una instancia aislada de middleware y routes.  Se puede pensar que es una miniaplicaci&#xF3;n capaz solo de realizar funciones de routing y desarrollo.</p>
+<p>The following example creates a router as a module, loads a middleware function in it, defines some routes, and mounts the router module on a path in the main app:</p>
+<pre><code>var express = require(&apos;express&apos;)
+var router = express.Router()
+
+// middleware that is specific to this router
+router.use(function timeLog (req, res, next) {
+  console.log(&apos;Time: &apos;, Date.now())
+  next()
+})
+// define the home page route
+router.get(&apos;/&apos;, function (req, res) {
+  res.send(&apos;Birds home page&apos;)
+})
+// define the about route
+router.get(&apos;/about&apos;, function (req, res) {
+  res.send(&apos;About birds&apos;)
+})
+
+module.exports = router
+</code></pre><p>Para cargar el modulo router en la app hacemos:</p>
+<pre><code>var birds = require(&apos;./birds&apos;)
+
+app.use(&apos;/birds&apos;, birds)
+</code></pre><h2 id="m&#xE9;todos">M&#xE9;todos</h2>
+<h3 id="routerallpath-callback--callback">router.all(path, [callback, ...] callback)</h3>
+<p>Este m&#xE9;todo llama a todos los m&#xE9;todos HTTP.
+Con el siguiente ejemplo saldr&#xE1; por pantalla, para cualquier path, &quot;hello world&quot;:</p>
+<pre><code>router.all(&apos;*&apos;, function(req, res){
+  res.send(&apos;hello world&apos;);
+});
+</code></pre><p>Si, por ejemplo, usamos un m&#xE9;todo de autentificaci&#xF3;n pedir&#xE1; autentificarse para cualquier path.</p>
+<pre><code>router.all(&apos;*&apos;, requireAuthentication, loadUser);
+</code></pre><p>Si utilizamos el m&#xE9;todo router.all() al principio de todo el c&#xF3;digo, coger&#xE1; dicho m&#xE9;todo siempre.</p>
+<h3 id="routermethodpath-callback--callback">router.METHOD(path, [callback, ...] callback)</h3>
+<p>El m&#xE9;todo router.METHOD() puede proporcionar m&#xFA;ltiples devoluciones de llamadas, corpont&#xE1;ndose como middleware, excepto que &#xE9;stas pueden invocar rutas para omitir las rutas entrantes, es decir, podemos utilizar este m&#xE9;todo para pasar el control a las rutas subsiguientes cuando no haya ninguna raz&#xF3;n para proceder con la ruta coincidente. 
+En el siguiente ejemplo, Express traduce la cadena pasada como una expresi&#xF3;n regular, utilizada internamente para coincidir con las solicitudes entrantes:</p>
+<pre><code>router.get(&apos;/&apos;, function(req, res){
+  res.send(&apos;hello world&apos;);
+});
+</code></pre><h3 id="routerparamname-callback">router.param(name, callback)</h3>
+<p>Este m&#xE9;todo se encarga de agregar disparadores a los m&#xE9;todos de rutas, donde name es el nombre del par&#xE1;metros y callback es la devoluci&#xF3;n de la llamada. </p>
+<p>Los par&#xE1;metros posibles para funci&#xF3;n callback son:</p>
+<ul>
+<li>req, el objeto request.</li>
+<li>res, el objeto de respuesta.</li>
+<li>next, indica la siguiente funci&#xF3;n middleware.</li>
+<li>El valor del par&#xE1;metro name.</li>
+<li>El nomnre del par&#xE1;metro.</li>
+</ul>
+<p>Un ejemplo:</p>
+<pre><code>router.param(&apos;user&apos;, function(req, res, next, id) {
+  User.find(id, function(err, user) {
+    if (err) {
+      next(err);
+    } else if (user) {
+      req.user = user;
+      next();
+    } else {
+      next(new Error(&apos;failed to load user&apos;));
+    }
+  });
+});
+</code></pre><p>Las funciones de devoluci&#xF3;n de llamada de par&#xE1;metros son locales al enrutador en el que se definen. Por lo tanto, las devoluciones del m&#xE9;todo router.param() definidas en el enrutador se activar&#xE1;n s&#xF3;lo por los par&#xE1;metros de ruta definidos en las rutas del enrutador.</p>
+<p>Una devoluci&#xF3;n de llamada de par&#xE1;metros se llamar&#xE1; s&#xF3;lo una vez en un ciclo de petici&#xF3;n-respuesta, incluso si el par&#xE1;metro coincide en varias rutas, como se muestra en los siguientes ejemplos:</p>
+<pre><code>router.param(&apos;id&apos;, function (req, res, next, id) {
+  console.log(&apos;CALLED ONLY ONCE&apos;);
+  next();
+});
+
+router.get(&apos;/user/:id&apos;, function (req, res, next) {
+  console.log(&apos;although this matches&apos;);
+  next();
+});
+
+router.get(&apos;/user/:id&apos;, function (req, res) {
+  console.log(&apos;and this matches too&apos;);
+  res.end();
+});
+</code></pre><h3 id="routerroutepath">router.route(path)</h3>
+<p>Podemos utilizar el m&#xE9;todo router.route() para evitar la asignaci&#xF3;n de rutas duplicadas y, por lo tanto, errores de escritura.</p>
+<pre><code>var router = express.Router();
+
+router.param(&apos;user_id&apos;, function(req, res, next, id) {
+  req.user = {
+    id: id,
+    name: &apos;TJ&apos;
+  };
+  next();
+});
+
+router.route(&apos;/users/:user_id&apos;)
+.all(function(req, res, next) {
+  next();
+})
+.get(function(req, res, next) {
+  res.json(req.user);
+})
+.put(function(req, res, next) {
+  req.user.name = req.params.name;
+  res.json(req.user);
+})
+.post(function(req, res, next) {
+  next(new Error(&apos;not implemented&apos;));
+})
+.delete(function(req, res, next) {
+  next(new Error(&apos;not implemented&apos;));
+});
+</code></pre><p>Este ejemplo reutiliza la ruta /users/:user_id y agrega controladores para varios m&#xE9;todos HTTP.</p>
+<h3 id="routerusepath-function--function">router.use([path], [function, ...] function)</h3>
+<p>Este m&#xE9;todo utiliza la funci&#xF3;n o funciones de middleware especificadas, con la ruta de acceso de montaje opcional, cuyo valor predeterminado es &quot;/&quot;.</p>
+<pre><code>router.use(function(req, res, next) {
+  console.log(&apos;%s %s %s&apos;, req.method, req.url, req.path);
+  next();
+});
+
+router.use(&apos;/bar&apos;, function(req, res, next) {
+  next();
+});
+
+router.use(function(req, res, next) {
+  res.send(&apos;Hello World&apos;);
+});
+
+app.use(&apos;/foo&apos;, router);
+
+app.listen(3000);
+</code></pre><p>El orden en el que se define middleware con router.use() es muy importante. Se invocan secuencialmente, por lo que el orden define la precedencia de middleware. Un ejemplo:</p>
+<pre><code>var logger = require(&apos;morgan&apos;);
+
+router.use(logger());
+router.use(express.static(__dirname + &apos;/public&apos;));
+router.use(function(req, res){
+  res.send(&apos;Hello&apos;);
+});
+</code></pre>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../" class="navigation navigation-prev navigation-unique" aria-label="Previous page: Introduction">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Express","level":"1.2","depth":1,"previous":{"title":"Introduction","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"express/express.md","mtime":"2017-03-03T22:38:17.130Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-03T22:43:14.765Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
