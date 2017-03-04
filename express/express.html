@@ -58,7 +58,7 @@
 
     
     
-    <link rel="prev" href="../" />
+    <link rel="prev" href="../capituloMarkdown/Markdown.html" />
     
 
     </head>
@@ -100,7 +100,111 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.2" data-path="express.html">
+        <li class="chapter " data-level="1.2" data-path="../capitulogit/git.html">
+            
+                <a href="../capitulogit/git.html">
+            
+                    
+                    Git
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../capitulonodejs/nodejs.html">
+            
+                <a href="../capitulonodejs/nodejs.html">
+            
+                    
+                    Node JS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../capitulogithub/github.html">
+            
+                <a href="../capitulogithub/github.html">
+            
+                    
+                    Github
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../capitulogitbook/Gitbook.html">
+            
+                <a href="../capitulogitbook/Gitbook.html">
+            
+                    
+                    Gitbook
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../capituloghpages/ghpages.html">
+            
+                <a href="../capituloghpages/ghpages.html">
+            
+                    
+                    gh-pages
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../capituloPandoc/Pandoc.html">
+            
+                <a href="../capituloPandoc/Pandoc.html">
+            
+                    
+                    Pandoc
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../capituloC9/c9.html">
+            
+                <a href="../capituloC9/c9.html">
+            
+                    
+                    Cloud9
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../capituloMarkdown/Markdown.html">
+            
+                <a href="../capituloMarkdown/Markdown.html">
+            
+                    
+                    Markdown
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.10" data-path="express.html">
             
                 <a href="express.html">
             
@@ -286,15 +390,17 @@ app.use(function (req, res, next) {
   }
   else next()
 })
-</code></pre><p>Para montarel enrutador en la aplicaci&#xF3;n hacemos:</p>
+</code></pre><p>Para montar el enrutador en la aplicaci&#xF3;n hacemos:</p>
 <pre><code>app.use(&apos;/&apos;, router)
-</code></pre><h2 id="error-handling-middleware-middleware-de-manejo-de-errores">Error-handling middleware (middleware de manejo de errores)</h2>
+</code></pre><p><img src="router-level.png" alt="router-level"></p>
+<h2 id="error-handling-middleware-middleware-de-manejo-de-errores">Error-handling middleware (middleware de manejo de errores)</h2>
 <p>Los middleware de manejo de errores siempre toman cuatro argumentos, son necesarios para identificarse como este tipo demiddleware. Aunque no sea necesario el uso de los cuatro argumentos, deben especificarse.</p>
 <pre><code>app.use(function (err, req, res, next) {
   console.error(err.stack)
   res.status(500).send(&apos;Something broke!&apos;)
 })
-</code></pre><h2 id="built-in-middleware-middlewear-incorporado">Built-in middleware (middlewear incorporado)</h2>
+</code></pre><p><img src="broke.png" alt="broke"></p>
+<h2 id="built-in-middleware-middlewear-incorporado">Built-in middleware (middlewear incorporado)</h2>
 <p>La &#xFA;nica funci&#xF3;n middleware incorporada en Express es express.static. Esta funci&#xF3;n se basa en serve-static y es responsable de servir activos est&#xE1;ticos, como archivos HTML, im&#xE1;genes, etc. Su sint&#xE1;xis es:</p>
 <pre><code>express.static(root, [options])
 </code></pre><p>El argumento root especifica el directorio ra&#xED;z desde el cual se deben coger los recursos est&#xE1;ticos.</p>
@@ -312,7 +418,8 @@ app.use(function (req, res, next) {
 }
 
 app.use(express.static(&apos;_book&apos;, options))
-</code></pre><p>Ahora el c&#xF3;gigo estar&#xE1; atento a cualquier fichero con la extensi&#xF3;n y las opciones especificadas que le pidan en la carpeta public (en este caso).</p>
+</code></pre><p><img src="static.png" alt="static"></p>
+<p>Ahora el c&#xF3;gigo estar&#xE1; atento a cualquier fichero con la extensi&#xF3;n y las opciones especificadas que le pidan en la carpeta public (en este caso).</p>
 <h2 id="third-party-middleware-middleware-de-terceros">Third-party middleware (middleware de terceros)</h2>
 <p>Podemos utilizar middleware de terceros para agregar funcionalidad a las aplicaciones de Express.</p>
 <p>Debemos instalar el m&#xF3;dulo Node.js para obtener la funcionalidad requerida y, a continuaci&#xF3;n, debemos cargarlo en la aplicaci&#xF3;n en el nivel de aplicaci&#xF3;n o en el nivel del enrutador.</p>
@@ -350,14 +457,16 @@ module.exports = router
 <pre><code>var birds = require(&apos;./birds&apos;)
 
 app.use(&apos;/birds&apos;, birds)
-</code></pre><h2 id="m&#xE9;todos">M&#xE9;todos</h2>
+</code></pre><p><img src="birds.png" alt="birds"></p>
+<h2 id="m&#xE9;todos">M&#xE9;todos</h2>
 <h3 id="routerallpath-callback--callback">router.all(path, [callback, ...] callback)</h3>
 <p>Este m&#xE9;todo llama a todos los m&#xE9;todos HTTP.
 Con el siguiente ejemplo saldr&#xE1; por pantalla, para cualquier path, &quot;hello world&quot;:</p>
 <pre><code>router.all(&apos;*&apos;, function(req, res){
   res.send(&apos;hello world&apos;);
 });
-</code></pre><p>Si, por ejemplo, usamos un m&#xE9;todo de autentificaci&#xF3;n pedir&#xE1; autentificarse para cualquier path.</p>
+</code></pre><p><img src="cualquier.png" alt="cualquier"></p>
+<p>Si, por ejemplo, usamos un m&#xE9;todo de autentificaci&#xF3;n pedir&#xE1; autentificarse para cualquier path.</p>
 <pre><code>router.all(&apos;*&apos;, requireAuthentication, loadUser);
 </code></pre><p>Si utilizamos el m&#xE9;todo router.all() al principio de todo el c&#xF3;digo, coger&#xE1; dicho m&#xE9;todo siempre.</p>
 <h3 id="routermethodpath-callback--callback">router.METHOD(path, [callback, ...] callback)</h3>
@@ -366,7 +475,13 @@ En el siguiente ejemplo, Express traduce la cadena pasada como una expresi&#xF3;
 <pre><code>router.get(&apos;/&apos;, function(req, res){
   res.send(&apos;hello world&apos;);
 });
-</code></pre><h3 id="routerparamname-callback">router.param(name, callback)</h3>
+</code></pre><pre><code>router.get(/^\/commits\/(\w+)(?:\.\.(\w+))?$/, function(req, res){
+  var from = req.params[0];
+  var to = req.params[1] || &apos;HEAD&apos;;
+  res.send(&apos;commit range &apos; + from + &apos;..&apos; + to);
+});
+</code></pre><p><img src="commit.png" alt="commit"></p>
+<h3 id="routerparamname-callback">router.param(name, callback)</h3>
 <p>Este m&#xE9;todo se encarga de agregar disparadores a los m&#xE9;todos de rutas, donde name es el nombre del par&#xE1;metros y callback es la devoluci&#xF3;n de la llamada. </p>
 <p>Los par&#xE1;metros posibles para funci&#xF3;n callback son:</p>
 <ul>
@@ -405,7 +520,8 @@ router.get(&apos;/user/:id&apos;, function (req, res) {
   console.log(&apos;and this matches too&apos;);
   res.end();
 });
-</code></pre><h3 id="routerroutepath">router.route(path)</h3>
+</code></pre><p><img src="called.png" alt="called"></p>
+<h3 id="routerroutepath">router.route(path)</h3>
 <p>Podemos utilizar el m&#xE9;todo router.route() para evitar la asignaci&#xF3;n de rutas duplicadas y, por lo tanto, errores de escritura.</p>
 <pre><code>var router = express.Router();
 
@@ -453,7 +569,8 @@ router.use(function(req, res, next) {
 app.use(&apos;/foo&apos;, router);
 
 app.listen(3000);
-</code></pre><p>El orden en el que se define middleware con router.use() es muy importante. Se invocan secuencialmente, por lo que el orden define la precedencia de middleware. Un ejemplo:</p>
+</code></pre><p><img src="foo.png" alt="foo"></p>
+<p>El orden en el que se define middleware con router.use() es muy importante. Se invocan secuencialmente, por lo que el orden define la precedencia de middleware. Un ejemplo:</p>
 <pre><code>var logger = require(&apos;morgan&apos;);
 
 router.use(logger());
@@ -488,7 +605,7 @@ router.use(function(req, res){
 
             
                 
-                <a href="../" class="navigation navigation-prev navigation-unique" aria-label="Previous page: Introduction">
+                <a href="../capituloMarkdown/Markdown.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: Markdown">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
@@ -500,7 +617,7 @@ router.use(function(req, res){
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Express","level":"1.2","depth":1,"previous":{"title":"Introduction","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"express/express.md","mtime":"2017-03-03T22:38:17.130Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-03T22:43:14.765Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Express","level":"1.10","depth":1,"previous":{"title":"Markdown","level":"1.9","depth":1,"path":"capituloMarkdown/Markdown.md","ref":"capituloMarkdown/Markdown.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"express/express.md","mtime":"2017-03-04T00:02:36.589Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-04T00:04:21.153Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

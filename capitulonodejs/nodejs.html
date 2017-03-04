@@ -1,0 +1,370 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Node JS · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.2">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../capitulogithub/github.html" />
+    
+    
+    <link rel="prev" href="../capitulogit/git.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../capitulogit/git.html">
+            
+                <a href="../capitulogit/git.html">
+            
+                    
+                    Git
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.3" data-path="nodejs.html">
+            
+                <a href="nodejs.html">
+            
+                    
+                    Node JS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../capitulogithub/github.html">
+            
+                <a href="../capitulogithub/github.html">
+            
+                    
+                    Github
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../capitulogitbook/Gitbook.html">
+            
+                <a href="../capitulogitbook/Gitbook.html">
+            
+                    
+                    Gitbook
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../capituloghpages/ghpages.html">
+            
+                <a href="../capituloghpages/ghpages.html">
+            
+                    
+                    gh-pages
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../capituloPandoc/Pandoc.html">
+            
+                <a href="../capituloPandoc/Pandoc.html">
+            
+                    
+                    Pandoc
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../capituloC9/c9.html">
+            
+                <a href="../capituloC9/c9.html">
+            
+                    
+                    Cloud9
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../capituloMarkdown/Markdown.html">
+            
+                <a href="../capituloMarkdown/Markdown.html">
+            
+                    
+                    Markdown
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="../express/express.html">
+            
+                <a href="../express/express.html">
+            
+                    
+                    Express
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Node JS</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="node-js">Node Js</h1>
+<h2 id="introducci&#xF3;n">Introducci&#xF3;n.</h2>
+<p>NodeJs es un entorno de ejecuci&#xF3;n de java basado en el motor de JavaScript V8 de Chrome.
+NodeJs utiliza como manipulador de paquetes por defecto npm, poseyendo grandes librer&#xED;as de codigo abierto a su disposici&#xF3;n.</p>
+<h2 id="instalaci&#xF3;n">Instalaci&#xF3;n.</h2>
+<p>Para su instalaci&#xF3;n es necesario descargar el instalador en su propia <a href="https://nodejs.org/es/" target="_blank">p&#xE1;gina</a> y seguir las instrucci&#xF3;nes que se van indicando.</p>
+<p><img src="Instalador.png" alt="Instalador"></p>
+<p>En caso de utilizar plataformas como c9, el nodejs ya vendr&#xE1; preinstalado y podemos comprobar su versi&#xF3;n:</p>
+<p><img src="ComprobarVersion.png" alt="Version">   </p>
+<h2 id="uso-b&#xE1;sico">Uso B&#xE1;sico</h2>
+<p>Algunos comandos b&#xE1;sicos para <strong>npm</strong> podr&#xED;an ser:</p>
+<ul>
+<li>npm install . Este comando nos permite instalar todas las dependencias encontrados en el fichero package.json.</li>
+<li>npm install <nombre>. Se instala el paquete deseado.</nombre></li>
+<li>npm install -g <nombre>. Se realiza la instalaci&#xF3;n del paquete deseado de forma global.</nombre></li>
+<li>npm install <nombre> --save-dev. Se realiza la instalaci&#xF3;n del paquete deseado como dependencia de desarrollo.</nombre></li>
+<li>npm --help. Se muestra la documentaci&#xF3;n respecto a npm.</li>
+</ul>
+<p>El uso b&#xE1;sico de <strong>NodeJs</strong> es:</p>
+<ul>
+<li>node. Se habre la consola de NodeJs.</li>
+<li>node nombrefichero.js. Se ejecuta el fichero de codigo JavaScript deseado.</li>
+<li>.exit. Salir de la consola de NodeJs.</li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../capitulogit/git.html" class="navigation navigation-prev " aria-label="Previous page: Git">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../capitulogithub/github.html" class="navigation navigation-next " aria-label="Next page: Github">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Node JS","level":"1.3","depth":1,"next":{"title":"Github","level":"1.4","depth":1,"path":"capitulogithub/github.md","ref":"capitulogithub/github.md","articles":[]},"previous":{"title":"Git","level":"1.2","depth":1,"path":"capitulogit/git.md","ref":"capitulogit/git.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"capitulonodejs/nodejs.md","mtime":"2017-03-03T23:45:09.814Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-04T00:04:21.153Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

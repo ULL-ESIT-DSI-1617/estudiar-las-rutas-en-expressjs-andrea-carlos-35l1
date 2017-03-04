@@ -1,0 +1,406 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Markdown · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.2">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../express/express.html" />
+    
+    
+    <link rel="prev" href="../capituloC9/c9.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../capitulogit/git.html">
+            
+                <a href="../capitulogit/git.html">
+            
+                    
+                    Git
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../capitulonodejs/nodejs.html">
+            
+                <a href="../capitulonodejs/nodejs.html">
+            
+                    
+                    Node JS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../capitulogithub/github.html">
+            
+                <a href="../capitulogithub/github.html">
+            
+                    
+                    Github
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../capitulogitbook/Gitbook.html">
+            
+                <a href="../capitulogitbook/Gitbook.html">
+            
+                    
+                    Gitbook
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../capituloghpages/ghpages.html">
+            
+                <a href="../capituloghpages/ghpages.html">
+            
+                    
+                    gh-pages
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../capituloPandoc/Pandoc.html">
+            
+                <a href="../capituloPandoc/Pandoc.html">
+            
+                    
+                    Pandoc
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../capituloC9/c9.html">
+            
+                <a href="../capituloC9/c9.html">
+            
+                    
+                    Cloud9
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.9" data-path="Markdown.html">
+            
+                <a href="Markdown.html">
+            
+                    
+                    Markdown
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="../express/express.html">
+            
+                <a href="../express/express.html">
+            
+                    
+                    Express
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Markdown</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="markdown">Markdown</h1>
+<h2 id="introducci&#xF3;n">Introducci&#xF3;n.</h2>
+<p>  Markdown es un m&#xE9;todo de escritura que tiene como objetivo mantener una forma sencilla y legible de escribir, con
+la posibilidad de a&#xF1;adir formatos como negrita, enlaces, im&#xE1;genes etc, mediante &#xFA;nicamente texto plano.
+Nos proporciona una forma sencilla de construir documentos html(tras una conversi&#xF3;n como podr&#xED;a ser usando <a href="../capituloPandoc/Pandoc.html">Pandoc</a>
+o <a href="../capituloX/Gitbook.html">Gitbook</a>).</p>
+<h2 id="uso-b&#xE1;sico">Uso B&#xE1;sico.</h2>
+<p>Para dar formato al texto que queremos incluir en nuestro documento, ser&#xE1; necesario realizar peque&#xF1;os cambios al documento:</p>
+<p>Para a&#xF1;adir un titulo o subtitulo utilizamos # una o m&#xE1;s veces</p>
+<ul>
+<li># Titulo<h1 id="titulo">Titulo</h1>
+</li>
+<li>## Subtitulo<h2 id="subtitulo">Subtitulo</h2>
+</li>
+<li>###Subtitulo<h3 id="subtitulo">Subtitulo</h3>
+</li>
+</ul>
+<p>Para a&#xF1;adir un texto en negrita, escribimos un doble * antes y despu&#xE9;s del texto.</p>
+<ul>
+<li><p>**Negrita**</p>
+<p><strong>Negrita</strong></p>
+</li>
+</ul>
+<p>Para a&#xF1;adir texto en cursiva, escribimos un * antes y despues del texto.  </p>
+<ul>
+<li><p>*Cursiva*</p>
+<p><em>Cursiva</em></p>
+</li>
+</ul>
+<p>Para a&#xF1;adir tanto negrita como cursiva a un texto, utilizamos un triple * antes y despues del texto.</p>
+<ul>
+<li><p>***Negrita y cursiva***</p>
+<p><strong><em>Negrita y cursiva</em></strong></p>
+</li>
+</ul>
+<p>Para crear una lista, o enumerar, escribimos al empezar el renglon * , -, o +.</p>
+<ul>
+<li><p>Listas:</p>
+<p>* Elemento 1</p>
+<p>* Elemento 2</p>
+<ul>
+<li>Elemento 1</li>
+<li>Elemento 2</li>
+</ul>
+</li>
+</ul>
+<p>Para a&#xF1;adir enlaces a nuestro texto, escribiremos la palabra que queremos que aparezca en el texto entre corchetes []
+y entre par&#xE9;ntesis escribimos la direcci&#xF3;n ().</p>
+<ul>
+<li><p>[Enlace](Markdown.html)</p>
+<p><a href="Markdown.html">Enlace</a>  </p>
+</li>
+</ul>
+<p>Para a&#xF1;adir imagenes a nuestro texto, debemos incluir la imagen igual que los enlaces, pero a&#xF1;adiedo un signo de exclamaci&#xF3;n
+antes ! .</p>
+<ul>
+<li><p>![Imagen](Imagen.png)</p>
+<p><img src="Imagen.png" alt="Imagen"></p>
+</li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../capituloC9/c9.html" class="navigation navigation-prev " aria-label="Previous page: Cloud9">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../express/express.html" class="navigation navigation-next " aria-label="Next page: Express">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Markdown","level":"1.9","depth":1,"next":{"title":"Express","level":"1.10","depth":1,"path":"express/express.md","ref":"express/express.md","articles":[]},"previous":{"title":"Cloud9","level":"1.8","depth":1,"path":"capituloC9/c9.md","ref":"capituloC9/c9.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"capituloMarkdown/Markdown.md","mtime":"2017-03-03T23:45:12.514Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-04T00:04:21.153Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
