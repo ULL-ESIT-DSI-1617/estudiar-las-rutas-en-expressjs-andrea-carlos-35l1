@@ -197,11 +197,13 @@ router.get('/ejemplos/:id', function (req, res, next) {
 })
 ~~~
 
-Para montarel enrutador en la aplicación hacemos:
+Para montar el enrutador en la aplicación hacemos:
 
 ~~~
 app.use('/', router)
 ~~~
+
+![router-level](router-level.png)
 
 ## Error-handling middleware (middleware de manejo de errores)
 
@@ -213,6 +215,8 @@ app.use(function (err, req, res, next) {
   res.status(500).send('Something broke!')
 })
 ~~~
+
+![broke](broke.png)
 
 ## Built-in middleware (middlewear incorporado)
 
@@ -241,6 +245,8 @@ var options = {
 
 app.use(express.static('_book', options))
 ~~~
+
+![static](static.png)
 
 Ahora el cógigo estará atento a cualquier fichero con la extensión y las opciones especificadas que le pidan en la carpeta public (en este caso).
 
@@ -301,6 +307,8 @@ var birds = require('./birds')
 app.use('/birds', birds)
 ~~~
 
+![birds](birds.png)
+
 ## Métodos
 
 ### router.all(path, [callback, ...] callback)
@@ -313,6 +321,8 @@ router.all('*', function(req, res){
   res.send('hello world');
 });
 ~~~
+
+![cualquier](cualquier.png)
 
 Si, por ejemplo, usamos un método de autentificación pedirá autentificarse para cualquier path.
 
@@ -332,6 +342,16 @@ router.get('/', function(req, res){
   res.send('hello world');
 });
 ~~~
+
+~~~
+router.get(/^\/commits\/(\w+)(?:\.\.(\w+))?$/, function(req, res){
+  var from = req.params[0];
+  var to = req.params[1] || 'HEAD';
+  res.send('commit range ' + from + '..' + to);
+});
+~~~
+
+![commit](commit.png)
 
 ### router.param(name, callback)
 
@@ -381,6 +401,8 @@ router.get('/user/:id', function (req, res) {
   res.end();
 });
 ~~~
+
+![called](called.png)
 
 ### router.route(path)
 
@@ -440,6 +462,8 @@ app.use('/foo', router);
 
 app.listen(3000);
 ~~~
+
+![foo](foo.png)
 
 El orden en el que se define middleware con router.use() es muy importante. Se invocan secuencialmente, por lo que el orden define la precedencia de middleware. Un ejemplo:
 
