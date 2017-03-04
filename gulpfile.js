@@ -29,6 +29,6 @@ gulp.task('deploygb', shell.task([
 ]));
     
 gulp.task('serve', shell.task(
-  'cd ..'+
+  //'cd ..'+
   'gitbook serve docs html'
 ));
